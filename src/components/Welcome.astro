@@ -6,16 +6,23 @@ import ReactButton from "./ReactButton";
 import VueButton from "./VueButton.vue";
 ---
 
-<LandingView  >
-	<img
-		class="fixed top-0 left-0 w-full h-full -z-10 blur-[100px]"
-		src={background.src}
+<LandingView>
+  <img
+    class="fixed top-0 left-0 w-full h-full -z-50 blur-[100px]"
+    src={background.src}
     alt="background"
-		fetchpriority="high"
-	/>
-	<CountVisualizer client:only="react" />
-	<section class="flex gap-4 mt-6">
-		<VueButton client:only="vue" />
-		<ReactButton client:only="react" />
-	</section>
+    fetchpriority="high"
+  />
+  <div class="container mx-auto max-w-4xl flex flex-col items-center justify-center space-y-8">
+    <CountVisualizer client:only="react" />
+    <div class="relative border-2 border-blue-400 rounded-lg p-4 w-full">
+      <span class="absolute -top-3 right-4 bg-white px-2 text-purple-500 font-semibold">
+        React and Vue
+      </span>
+      <section class="flex gap-4 justify-center">
+        <VueButton client:only="vue" />
+        <ReactButton client:only="react" />
+      </section>
+    </div>
+  </div>
 </LandingView>
