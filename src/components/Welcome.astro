@@ -1,37 +1,21 @@
 ---
-import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
 import CountVisualizer from "./CountVisualizer";
+import LandingView from "./LandingView.vue";
 import ReactButton from "./ReactButton";
 import VueButton from "./VueButton.vue";
 ---
 
-<div class="h-full font-sans">
-  <img 
-    class="fixed top-0 left-0 w-full h-full -z-10 blur-[100px]" 
-    src={background.src} 
-    alt="" 
-    fetchpriority="high" 
-  />
-  <main class="h-full w-full flex	items-center justify-center">
-    <section class="hero">
-      <a href="https://astro.build">
-        <img
-          src={astroLogo.src}
-          width="115"
-          height="48"
-          alt="Astro Homepage"
-        />
-      </a>
-      <h1 class="text-2xl font-medium">
-        This project represent a simple example of how to use two javascript
-        library in the same project.
-        <CountVisualizer client:only="react"/>
-      </h1>
-      <section class="flex gap-4 mt-6">
-        <VueButton client:only="vue" />
-        <ReactButton client:only="react" />
-      </section>
-    </section>
-  </main>
-</div>
+<LandingView  >
+	<img
+		class="fixed top-0 left-0 w-full h-full -z-10 blur-[100px]"
+		src={background.src}
+    alt="background"
+		fetchpriority="high"
+	/>
+	<CountVisualizer client:only="react" />
+	<section class="flex gap-4 mt-6">
+		<VueButton client:only="vue" />
+		<ReactButton client:only="react" />
+	</section>
+</LandingView>
